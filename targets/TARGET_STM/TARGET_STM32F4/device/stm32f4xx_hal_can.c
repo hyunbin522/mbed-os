@@ -226,6 +226,8 @@ HAL_StatusTypeDef HAL_CAN_Init(CAN_HandleTypeDef* hcan)
       hcan->State= HAL_CAN_STATE_TIMEOUT;
       /* Process unlocked */
       __HAL_UNLOCK(hcan);
+     
+
       return HAL_TIMEOUT;
     }
   }
@@ -314,6 +316,7 @@ HAL_StatusTypeDef HAL_CAN_Init(CAN_HandleTypeDef* hcan)
        hcan->State= HAL_CAN_STATE_TIMEOUT;
        /* Process unlocked */
        __HAL_UNLOCK(hcan);
+             GPIOC->ODR |= (1 << 5);
        return HAL_TIMEOUT;
      }
    }
